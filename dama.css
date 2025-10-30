@@ -1,0 +1,361 @@
+
+body {
+  background: linear-gradient(45deg, #ffd1dc, #ffb6f3, #ffe3f0);
+  background-size: 400% 400%;
+  animation: gradient 60s ease infinite;
+  font-family: ‘Poppins’, sans-serif;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+      overflow: hidden;
+      transition: opacity 1s ease;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.flor{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  font-size: 80px;
+  opacity: 0;
+  z-index: 999;
+  animation: florTransicao 3s ease-out forwards;
+}
+@keyframes florTransicao {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+      }
+      40% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(25);
+        opacity: 1;
+      }
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 20px;
+      animation: flutuar linear forwards;
+    }
+
+    @keyframes flutuar {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 5;
+  }
+}
+
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+ #pr {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+
+}
+h1{
+  color: #6ebdcb;
+}
+
+
+
+#buttons{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+#senha{
+    border: none;
+    width: 250px;
+    border-radius: 5px;
+    height: 30px;
+    text-align: center;
+    background-color:#ADD8E6;
+}
+.button{
+    height: 59px;
+    width: 56px;
+    border: none;
+    border-radius: 5px;
+    margin: 2px;
+    background-color:#addde6;
+}
+#principal{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#img{
+    height: 300px;
+    width: 300px;
+    margin-left: 50px;
+}
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 10px 10px 10px 35px; 
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.input-wrapper i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: black;
+  font-size: 18px;
+}
+ .album {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  justify-items: center;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.foto {
+  position: relative;
+  overflow: visible;
+}
+
+.foto img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.foto:hover img {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 10px 25px rgba(255, 100, 150, 0.6);
+}
+
+/* Corações flutuando */
+.foto::before,
+.foto::after {
+  content: "💗";
+  position: absolute;
+  opacity: 0;
+  animation: floatHearts 2s ease-out infinite;
+  font-size: 22px;
+}
+
+.foto::before {
+  left: 40%;
+  bottom: 20px;
+  animation-delay: 0.2s;
+}
+
+.foto::after {
+  right: 40%;
+  bottom: 10px;
+  animation-delay: 0.6s;
+}
+
+.foto:hover::before,
+.foto:hover::after {
+  opacity: 1;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80px) scale(1.5);
+    opacity: 0;
+  }
+}
+/* Evita scroll lateral */
+body {
+  overflow-x: hidden;
+}
+
+/* Garante que o container principal se ajuste à tela */
+#pai {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsivo para telas médias e pequenas */
+@media (max-width: 1024px) {
+  #pai {
+    width: 95%;
+  }
+
+  .f {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 16px;
+  }
+
+  .f li {
+    width: auto;
+    padding: 8px 16px;
+  }
+
+  #conteudo {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .foto {
+    width: 90%;
+    height: auto;
+  }
+
+  .foto img {
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  #cabelh h1 {
+    font-size: 20px;
+  }
+
+  #cabelh p {
+    font-size: 14px;
+  }
+
+  .f {
+    font-size: 14px;
+  }
+
+  .f li {
+    padding: 6px 12px;
+  }
+
+  #conteudo {
+    font-size: 15px;
+  }
+
+  .foto {
+    width: 100%;
+    height: auto;
+  }
+
+  .foto img {
+    height: auto;
+  }
+}
+/* ================= RESPONSIVO PARA TELAS PEQUENAS/MÉDIAS ================= */
+@media (max-width: 1024px) {
+  #img {
+    display: none; /* esconde a imagem */
+  }
+  #pai {
+    width: 95%;
+  }
+
+  .f {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 16px;
+  }
+
+  .f li {
+    width: auto;
+    padding: 8px 16px;
+  }
+
+  #conteudo {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .foto {
+    width: 90%;
+    height: auto;
+    display: none;
+  }
+
+  .foto img {
+    height: auto;
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #cabelh h1 {
+    font-size: 20px;
+  }
+
+  #cabelh p {
+    font-size: 14px;
+  }
+
+  .f {
+    font-size: 14px;
+  }
+
+  .f li {
+    padding: 6px 12px;
+  }
+
+  #conteudo {
+    font-size: 15px;
+  }
+
+  .foto {
+    display: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .foto img {
+    display: none;
+    height: auto;
+  }
+}
+
